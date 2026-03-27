@@ -29,7 +29,12 @@ ALLOWED_AUDIO_EXTENSIONS = {"wav", "mp3", "m4a", "ogg", "flac", "webm"}
 client = ElevenLabs(api_key=API_KEY)
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": [
+    "https://audio-insights-hub.vercel.app",
+    "https://backend-transcript-phi.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000"
+]}}, supports_credentials=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024 * 1024  # 1 GB
 app.config["JSON_SORT_KEYS"] = False  # keep key order in JSON output
