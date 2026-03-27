@@ -33,7 +33,8 @@ CORS(app, resources={r"/api/*": {"origins": [
     "https://audio-insights-hub.vercel.app",
     "https://backend-transcript-phi.vercel.app",
     "http://localhost:5173",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:8080",
 ]}}, supports_credentials=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024 * 1024  # 1 GB
